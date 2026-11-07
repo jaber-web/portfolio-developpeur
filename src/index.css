@@ -1,0 +1,131 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  /* Couleurs principales */
+  --bg-primary: #080817;
+  --bg-secondary: #101027;
+  --bg-card: #15152f;
+
+  /* Couleurs d'accentuation */
+  --accent: #7657ff;
+  --accent-blue: #4169ff;
+  --accent-purple: #a855f7;
+
+  /* Textes */
+  --text-primary: #f5f5ff;
+  --text-secondary: #a5a5bd;
+  --text-muted: #77778f;
+
+  /* Bordures et effets */
+  --border: rgba(255, 255, 255, 0.09);
+  --shadow: 0 0 30px rgba(118, 87, 255, 0.15);
+
+  color: var(--text-primary);
+  background: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Réinitialisation générale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Conteneur React */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Titres */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-primary);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Paragraphes */
+p {
+  color: var(--text-secondary);
+}
+
+/* Liens */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Boutons */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Images */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Sélection du texte */
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* Barre de défilement */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #39315f;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Accessibilité : focus clavier */
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
