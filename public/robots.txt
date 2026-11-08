@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-developpeur-eight.vercel.app/sitemap.xml
