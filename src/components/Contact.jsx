@@ -1,29 +1,52 @@
 
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import './Contact.css'
 
 function Contact() {
+  const formRef = useRef(null)
 
-  const contactEmail = 'jaberfaizidy@gmail.com'
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState({
+    type: '',
+    message: ''
+  })
 
-  function handleSubmit(event) {
+  const SERVICE_ID = 'service_j31vu89'
+  const TEMPLATE_ID = 'template_azyqyqb'
+  const PUBLIC_KEY = 'AU8cD0tikxWsbujzP'
+
+  async function handleSubmit(event) {
     event.preventDefault()
 
-    const formData = new FormData(event.currentTarget)
+    setLoading(true)
+    setStatus({ type: '', message: '' })
 
-    const name = formData.get('name')
-    const email = formData.get('email')
-    const message = formData.get('message')
+    try {
+      await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        formRef.current,
+        PUBLIC_KEY
+      )
 
-    const subject = encodeURIComponent(
-      `Message depuis mon portfolio - ${name}`
-    )
+      setStatus({
+        type: 'success',
+        message: 'Votre message a été envoyé avec succès ! Merci pour votre contact.'
+      })
 
-    const body = encodeURIComponent(
-      `Bonjour Jaber,\n\n${message}\n\nNom : ${name}\nE-mail : ${email}`
-    )
+      formRef.current.reset()
 
-    window.location.href =
-      `mailto:${contactEmail}?subject=${subject}&body=${body}`
+    } catch (error) {
+      console.error('Erreur EmailJS :', error)
+
+      setStatus({
+        type: 'error',
+        message: "Une erreur est survenue. Veuillez réessayer ou me contacter directement par e-mail."
+      })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -51,7 +74,7 @@ function Contact() {
 
         <div className="contact-content">
 
-          {/* Informations de contact */}
+          {/* Informations */}
           <div className="contact-info">
 
             <h3>Restons en contact</h3>
@@ -71,8 +94,8 @@ function Contact() {
               <div>
                 <h4>E-mail</h4>
 
-                <a href={`mailto:${contactEmail}`}>
-                  {contactEmail}
+                <a href="mailto:jaberfaizidy@gmail.com">
+                  jaberfaizidy@gmail.com
                 </a>
               </div>
 
@@ -112,8 +135,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   className="social-link"
                 >
-                  <span>GitHub</span>
-                  <span>↗</span>
+                  GitHub ↗
                 </a>
 
                 <a
@@ -122,8 +144,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   className="social-link"
                 >
-                  <span>LinkedIn</span>
-                  <span>↗</span>
+                  LinkedIn ↗
                 </a>
 
               </div>
@@ -132,44 +153,48 @@ function Contact() {
 
           </div>
 
-          {/* Formulaire */}
+          {/* Formulaire EmailJS */}
           <div className="contact-form-wrapper">
 
             <h3>Envoyez-moi un message</h3>
 
             <form
+              ref={formRef}
               className="contact-form"
               onSubmit={handleSubmit}
             >
 
               <div className="form-group">
 
-                <label htmlFor="name">
+                <label htmlFor="from_name">
                   Votre nom
                 </label>
 
                 <input
                   type="text"
-                  id="name"
-                  name="name"
+                  id="from_name"
+                  name="from_name"
                   placeholder="Entrez votre nom"
                   required
+                  minLength="2"
+                  maxLength="100"
                 />
 
               </div>
 
               <div className="form-group">
 
-                <label htmlFor="email">
+                <label htmlFor="from_email">
                   Votre adresse e-mail
                 </label>
 
                 <input
                   type="email"
-                  id="email"
-                  name="email"
+                  id="from_email"
+                  name="from_email"
                   placeholder="exemple@email.com"
                   required
+                  maxLength="150"
                 />
 
               </div>
@@ -186,16 +211,31 @@ function Contact() {
                   rows="5"
                   placeholder="Écrivez votre message ici..."
                   required
+                  minLength="10"
+                  maxLength="3000"
                 ></textarea>
 
               </div>
 
+              {/* Confirmation ou erreur */}
+              {status.message && (
+                <div
+                  className={`form-status ${status.type}`}
+                  role="status"
+                  aria-live="polite"
+                >
+                  {status.message}
+                </div>
+              )}
+
               <button
                 type="submit"
                 className="contact-button"
+                disabled={loading}
               >
-                Envoyer le message
-                <span> →</span>
+                {loading
+                  ? 'Envoi en cours...'
+                  : 'Envoyer le message →'}
               </button>
 
             </form>
