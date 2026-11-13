@@ -1,7 +1,7 @@
 
 import './About.css'
 
-import jaberImage from '../assets/jaber-portfolio.png'
+import jaberImage from "../assets/jaber-portfolio.webp";
 import formationIcon from '../assets/formation-icon.png'
 import objectifIcon from '../assets/objectif-icon.png'
 

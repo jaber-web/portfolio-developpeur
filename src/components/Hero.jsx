@@ -1,6 +1,6 @@
 
 import './Hero.css'
-import heroImage from '../assets/hero.png'
+import heroImage from '../assets/hero.webp';
 
 function Hero() {
   return (

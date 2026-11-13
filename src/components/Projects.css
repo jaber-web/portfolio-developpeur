@@ -172,7 +172,7 @@
 .travel-logo {
   font-size: 17px;
   font-weight: 800;
-  color: #69b5ff;
+  color: #0754b8;
   margin-bottom: 9px;
 }
 
@@ -199,7 +199,7 @@
 }
 
 .travel-search span:last-child {
-  background: #168bff;
+  background: #0754b8;
   color: #ffffff;
   padding: 5px 8px;
   border-radius: 4px;
@@ -242,7 +242,7 @@
 
 .books-subtitle {
   font-size: 9px;
-  color: #718096;
+  color: #53647a;
   margin: 6px 0;
 }
 
@@ -474,8 +474,8 @@
   .project-description {
     min-height: auto;
   }
-}
-  .project-details p,
+
+    .project-details p,
   .project-details li {
     font-size: 13px;
     line-height: 1.8;
@@ -484,6 +484,9 @@
   .project-details h4 {
     font-size: 14px;
   }
+
+}
+
 /* Respecte les préférences de mouvement */
 
 @media (prefers-reduced-motion: reduce) {
