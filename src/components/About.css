@@ -184,6 +184,44 @@
   transform: translateY(-2px);
 }
 
+
+/* =========================
+   BOUTONS À PROPOS
+========================= */
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.about-actions .about-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.about-actions .about-button:last-child {
+  background: transparent;
+  color: #55aaff;
+  border: 1px solid #168bff;
+}
+
+.about-actions .about-button:last-child:hover {
+  background: #168bff;
+  color: #061225;
+}
+
+/* Accessibilité clavier */
+.about-actions .about-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+
 /* =========================
    TABLETTES
 ========================= */
@@ -233,3 +271,11 @@
   }
 
 }
+  .about-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .about-actions .about-button {
+    width: 100%;
+  }

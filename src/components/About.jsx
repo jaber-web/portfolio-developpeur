@@ -8,7 +8,6 @@ import objectifIcon from '../assets/objectif-icon.png'
 function About() {
   return (
     <section id="apropos" className="about-section">
-
       <div className="about-container">
 
         {/* Photo de profil */}
@@ -32,36 +31,47 @@ function About() {
           </h2>
 
           <p className="about-intro">
-            Bonjour ! Je suis Jaber Faizi, développeur Web et Web Mobile,
-            passionné par la création d'applications modernes et intuitives.
+            Bonjour ! Je suis Jaber Faizi, développeur Web et
+            Web Mobile, passionné par la création d'applications
+            modernes, performantes et intuitives.
           </p>
 
           <p>
-            Grâce à mes différentes expériences professionnelles,
-            j'ai développé un bon esprit d'analyse, une capacité
-            d'adaptation et le sens du travail en équipe.
+            Mon parcours professionnel m'a permis de développer
+            des compétences variées, notamment dans le domaine
+            informatique, le support technique et la maintenance.
+            Mes expériences m'ont également appris à travailler
+            en équipe, à m'adapter et à résoudre des problèmes.
           </p>
 
           <p>
             Actuellement en formation Développeur Web et Web Mobile
             chez OpenClassrooms, je développe mes compétences en
-            HTML, CSS, JavaScript, React et Node.js.
+            HTML, CSS, JavaScript, React, Node.js et MongoDB.
           </p>
 
           <p>
-            J'aime relever de nouveaux défis techniques, apprendre
-            de nouvelles technologies et transformer des idées
-            en solutions numériques concrètes.
+            Je réalise des projets concrets qui me permettent
+            de mettre en pratique mes connaissances, de découvrir
+            de nouvelles technologies et de progresser dans
+            le développement frontend et backend.
+          </p>
+
+          <p>
+            Mon objectif est de poursuivre mon évolution vers
+            le développement Full Stack et de rejoindre une équipe
+            dans laquelle je pourrai contribuer à des projets
+            web tout en continuant à apprendre.
           </p>
 
           {/* Cartes Formation et Objectif */}
           <div className="about-cards">
 
             <div className="about-card">
-
               <img
                 src={formationIcon}
                 alt=""
+                aria-hidden="true"
                 className="about-card-icon"
               />
 
@@ -70,14 +80,13 @@ function About() {
               <p>
                 Développeur Web et Web Mobile
               </p>
-
             </div>
 
             <div className="about-card">
-
               <img
                 src={objectifIcon}
                 alt=""
+                aria-hidden="true"
                 className="about-card-icon"
               />
 
@@ -86,19 +95,23 @@ function About() {
               <p>
                 Développeur Full Stack
               </p>
-
             </div>
 
           </div>
 
-          <a href="#projets" className="about-button">
-            Découvrir mes projets →
-          </a>
+          {/* Boutons */}
+          <div className="about-actions">
+            <a href="#projets" className="about-button">
+              Découvrir mes projets →
+            </a>
+
+            <a href="#contact" className="about-button">
+              Me contacter
+            </a>
+          </div>
 
         </div>
-
       </div>
-
     </section>
   )
 }
